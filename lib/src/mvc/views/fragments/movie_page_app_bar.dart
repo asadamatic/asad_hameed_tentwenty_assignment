@@ -29,12 +29,10 @@ class MoviePageAppBar extends StatelessWidget {
         leading: IconButton(
             onPressed: () => _movieController.backToMovieListScreen(context),
             icon: const Icon(Icons.arrow_back_ios)),
-        expandedHeight: AppStyles.appBarExtendedHeight,
+        expandedHeight: AppStyles.appBarExtendedHeightPortrait,
         flexibleSpace: FlexibleSpaceBar(
           background: MovieDetailAppBarContent(
             movie: movie,
-            height: AppStyles.appBarExtendedHeight,
-            width: MediaQuery.of(context).size.width,
             orientation: Orientation.portrait,
           ),
         ));
@@ -43,24 +41,19 @@ class MoviePageAppBar extends StatelessWidget {
 
 class MovieDetailAppBarContent extends StatelessWidget {
   const MovieDetailAppBarContent(
-      {Key? key,
-      required this.movie,
-      required this.height,
-      required this.width,
-      required this.orientation})
+      {Key? key, required this.movie, required this.orientation})
       : super(key: key);
 
   final Movie? movie;
-  final double? height;
-  final double? width;
   final Orientation? orientation;
   @override
   Widget build(BuildContext context) {
     final MovieController _movieController = Get.find();
     final landscape = orientation == Orientation.landscape;
+    final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: height,
-      width: width,
+      height: landscape ? size.height : AppStyles.appBarExtendedHeightPortrait,
+      width: landscape ? AppStyles.appBarWidthLandscape : size.width,
       child: Stack(
         fit: StackFit.expand,
         children: [

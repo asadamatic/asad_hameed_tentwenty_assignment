@@ -74,8 +74,8 @@ class AppStyles {
   static final DateFormat movieReleaseDateFormatter =
       DateFormat("MMMM dd, yyyy");
 
-  static const double appBarExtendedHeight = 430.0;
-  static const double appBarWidthPortrait = 350.0;
+  static const double appBarExtendedHeightPortrait = 430.0;
+  static const double appBarWidthLandscape = 350.0;
 
   static const double buttonWidthPortrait = 280.0;
   static const double buttonWidthLandscape = 140.0;

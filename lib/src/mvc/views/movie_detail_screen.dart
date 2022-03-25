@@ -18,8 +18,6 @@ class MovieDetailScreen extends StatelessWidget {
             children: [
               MovieDetailAppBarContent(
                 movie: movie,
-                height: MediaQuery.of(context).size.height,
-                width: AppStyles.appBarWidthPortrait,
                 orientation: orientation,
               ),
               Flexible(child: ListView(children: bodyContent()))
