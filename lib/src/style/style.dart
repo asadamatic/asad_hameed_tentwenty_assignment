@@ -75,9 +75,11 @@ class AppStyles {
       DateFormat("MMMM dd, yyyy");
 
   static const double appBarExtendedHeight = 430.0;
-  static const double appBarWidth = 350.0;
+  static const double appBarWidthPortrait = 350.0;
 
-  static const double buttonWidth = 280.0;
+  static const double buttonWidthPortrait = 280.0;
+  static const double buttonWidthLandscape = 140.0;
+
   static const Color buttonColor = Color(0xff61C3F2);
   static const Color overviewColor = Color(0xff8F8F8F);
   static const double overviewSize = 16.0;

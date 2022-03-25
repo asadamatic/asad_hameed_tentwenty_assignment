@@ -35,6 +35,7 @@ class MoviePageAppBar extends StatelessWidget {
             movie: movie,
             height: AppStyles.appBarExtendedHeight,
             width: MediaQuery.of(context).size.width,
+            orientation: Orientation.portrait,
           ),
         ));
   }
@@ -45,16 +46,18 @@ class MovieDetailAppBarContent extends StatelessWidget {
       {Key? key,
       required this.movie,
       required this.height,
-      required this.width})
+      required this.width,
+      required this.orientation})
       : super(key: key);
 
   final Movie? movie;
   final double? height;
   final double? width;
+  final Orientation? orientation;
   @override
   Widget build(BuildContext context) {
     final MovieController _movieController = Get.find();
-
+    final landscape = orientation == Orientation.landscape;
     return SizedBox(
       height: height,
       width: width,
@@ -81,7 +84,7 @@ class MovieDetailAppBarContent extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 40.0,
+            bottom: landscape ? 20.0 : 40.0,
             left: 10.0,
             right: 10.0,
             child: Padding(
@@ -98,42 +101,14 @@ class MovieDetailAppBarContent extends StatelessWidget {
                   const SizedBox(
                     height: 15.0,
                   ),
-                  Container(
-                      width: AppStyles.buttonWidth,
-                      decoration: BoxDecoration(
-                          color: AppStyles.buttonColor,
-                          borderRadius: AppStyles.movieImageRadius),
-                      child: TextButton(
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all(
-                                  AppStyles.buttonTextColor),
-                              textStyle: MaterialStateProperty.all(
-                                  const TextStyle(
-                                      fontSize: AppStyles.appBarTextSize))),
-                          onPressed: () {},
-                          child: const Text(AppConstants.getTickets))),
-                  const SizedBox(
-                    height: 15.0,
-                  ),
-                  Container(
-                      width: AppStyles.buttonWidth,
-                      decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          border: Border.all(color: AppStyles.buttonColor),
-                          borderRadius: AppStyles.movieImageRadius),
-                      child: TextButton.icon(
-                          icon: const Icon(
-                            Icons.play_arrow,
-                          ),
-                          style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all(
-                                  AppStyles.buttonTextColor),
-                              textStyle: MaterialStateProperty.all(
-                                  const TextStyle(
-                                      fontSize: AppStyles.appBarTextSize))),
-                          onPressed: () => _movieController.watchTrailer(
-                              context, movie!.id!),
-                          label: const Text(AppConstants.watchTrailer)))
+                  landscape
+                      ? Row(
+                          children:
+                              buttons(context, _movieController, landscape),
+                        )
+                      : Column(
+                          children:
+                              buttons(context, _movieController, landscape))
                 ],
               ),
             ),
@@ -141,5 +116,49 @@ class MovieDetailAppBarContent extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  List<Widget> buttons(context, _movieController, landscape) {
+    return [
+      Container(
+          width: landscape
+              ? AppStyles.buttonWidthLandscape
+              : AppStyles.buttonWidthPortrait,
+          decoration: BoxDecoration(
+              color: AppStyles.buttonColor,
+              borderRadius: AppStyles.movieImageRadius),
+          child: TextButton(
+              style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all(AppStyles.buttonTextColor),
+                  textStyle: MaterialStateProperty.all(
+                      const TextStyle(fontSize: AppStyles.appBarTextSize))),
+              onPressed: () {},
+              child: const Text(AppConstants.getTickets))),
+      SizedBox(
+        height: landscape ? 0.0 : 15.0,
+        width: landscape ? 15.0 : 0.0,
+      ),
+      Container(
+          width: landscape
+              ? AppStyles.buttonWidthLandscape
+              : AppStyles.buttonWidthPortrait,
+          decoration: BoxDecoration(
+              color: Colors.transparent,
+              border: Border.all(color: AppStyles.buttonColor),
+              borderRadius: AppStyles.movieImageRadius),
+          child: TextButton.icon(
+              icon: const Icon(
+                Icons.play_arrow,
+              ),
+              style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all(AppStyles.buttonTextColor),
+                  textStyle: MaterialStateProperty.all(
+                      const TextStyle(fontSize: AppStyles.appBarTextSize))),
+              onPressed: () =>
+                  _movieController.watchTrailer(context, movie!.id!),
+              label: const Text(AppConstants.watchTrailer)))
+    ];
   }
 }

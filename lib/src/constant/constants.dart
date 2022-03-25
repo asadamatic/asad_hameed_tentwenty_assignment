@@ -11,7 +11,7 @@ class AppConstants {
   static const String genre = 'Genre';
   static const String overview = 'Overview';
   static const String getTickets = 'Get Tickets';
-  static const String watchTrailer = 'Watch Trailer';
+  static const String watchTrailer = 'Trailer';
   static const String inTheaters = 'In Theaters';
 
   static const String upcomingMoviesLoadingBuilder =
