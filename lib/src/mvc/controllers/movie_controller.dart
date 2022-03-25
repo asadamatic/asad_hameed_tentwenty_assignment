@@ -20,7 +20,8 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MovieController extends GetxController {
   // Controllers
-  PersistentTabController? persistentTabController = PersistentTabController(initialIndex: 1);
+  PersistentTabController? persistentTabController =
+      PersistentTabController(initialIndex: 1);
   YoutubePlayerController? youtubeVideoController;
 
   // Utilities

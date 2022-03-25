@@ -12,5 +12,4 @@ class AppHttp {
       headers: headers,
     );
   }
-
 }

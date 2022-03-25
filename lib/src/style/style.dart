@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class AppStyles {
-
   //Scaffold styles
   static const Color scaffoldBackgroundColor = Color(0xffF4F4F9);
   // Bottom NavigationBar styles

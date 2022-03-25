@@ -78,4 +78,3 @@ class MovieListScreen extends StatelessWidget {
     );
   }
 }
-

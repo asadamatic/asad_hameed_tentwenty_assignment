@@ -5,5 +5,4 @@ class AppUrl {
   static const movieGenreList = "https://api.themoviedb.org/3/genre/movie/list";
   static const searchMedia = "https://api.themoviedb.org/3/search/multi";
   static const movieTrailer = "https://api.themoviedb.org/3/movie/";
-
 }

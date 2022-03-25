@@ -5,8 +5,8 @@ import 'package:movie_app/src/config/routes/app_pages.dart';
 import 'package:movie_app/src/config/routes/routes.dart';
 import 'package:movie_app/src/mvc/views/home.dart';
 import 'package:movie_app/src/style/style.dart';
-void main() async {
 
+void main() async {
   runApp(const MyApp());
 }
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.home,
       title: 'Movie App',
       theme: ThemeData(
-        scaffoldBackgroundColor: AppStyles.scaffoldBackgroundColor,
+          scaffoldBackgroundColor: AppStyles.scaffoldBackgroundColor,
           primarySwatch: Colors.blue,
           fontFamily: GoogleFonts.poppins().fontFamily),
       home: const Home(),

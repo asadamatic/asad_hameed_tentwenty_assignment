@@ -20,7 +20,8 @@ class SearchResultsScreen extends StatelessWidget {
             children: [
               AppBar(
                 leading: IconButton(
-                    onPressed: () => _movieController.backToMovieListScreen(context),
+                    onPressed: () =>
+                        _movieController.backToMovieListScreen(context),
                     icon: const Icon(Icons.arrow_back_ios)),
                 backgroundColor: AppStyles.appbarBackgroundColor,
                 automaticallyImplyLeading: true,

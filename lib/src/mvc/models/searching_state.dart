@@ -1,4 +1,1 @@
-enum SearchingState{
-  loading,
-  loaded
-}
+enum SearchingState { loading, loaded }

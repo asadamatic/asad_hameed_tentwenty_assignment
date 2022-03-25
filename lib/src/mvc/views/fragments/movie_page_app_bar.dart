@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:movie_app/src/constant/app_url.dart';
 import 'package:movie_app/src/constant/constants.dart';
 import 'package:movie_app/src/mvc/controllers/movie_controller.dart';
-import 'package:movie_app/src/mvc/models/media.dart';
 import 'package:movie_app/src/mvc/models/movie.dart';
 import 'package:movie_app/src/mvc/models/movies_loading_state.dart';
 import 'package:movie_app/src/style/style.dart';
@@ -32,19 +31,22 @@ class MoviePageAppBar extends StatelessWidget {
             icon: const Icon(Icons.arrow_back_ios)),
         expandedHeight: AppStyles.appBarExtendedHeight,
         flexibleSpace: FlexibleSpaceBar(
-          background: MovieDetailAppBarContent(movie: movie, height: AppStyles.appBarExtendedHeight, width: MediaQuery.of(context).size.width,),
+          background: MovieDetailAppBarContent(
+            movie: movie,
+            height: AppStyles.appBarExtendedHeight,
+            width: MediaQuery.of(context).size.width,
+          ),
         ));
   }
 }
 
 class MovieDetailAppBarContent extends StatelessWidget {
-  const MovieDetailAppBarContent({
-    Key? key,
-    required this.movie,
-    required this.height,
-    required this.width
-
-  }) :  super(key: key);
+  const MovieDetailAppBarContent(
+      {Key? key,
+      required this.movie,
+      required this.height,
+      required this.width})
+      : super(key: key);
 
   final Movie? movie;
   final double? height;
@@ -129,7 +131,8 @@ class MovieDetailAppBarContent extends StatelessWidget {
                               textStyle: MaterialStateProperty.all(
                                   const TextStyle(
                                       fontSize: AppStyles.appBarTextSize))),
-                          onPressed: ()=>_movieController.watchTrailer(context, movie!.id!),
+                          onPressed: () => _movieController.watchTrailer(
+                              context, movie!.id!),
                           label: const Text(AppConstants.watchTrailer)))
                 ],
               ),

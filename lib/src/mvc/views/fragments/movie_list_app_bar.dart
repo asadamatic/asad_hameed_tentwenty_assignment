@@ -36,7 +36,7 @@ class MovieListScreenAppBar extends StatelessWidget with PreferredSizeWidget {
                         enabledBorder: AppStyles.searchFieldBorder,
                         focusedBorder: AppStyles.searchFieldBorder,
                         hintStyle:
-                        const TextStyle(color: AppStyles.closeIconColor),
+                            const TextStyle(color: AppStyles.closeIconColor),
                         suffixIcon: IconButton(
                           alignment: Alignment.centerRight,
                           color: AppStyles.closeIconColor,
