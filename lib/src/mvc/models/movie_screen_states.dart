@@ -1,1 +1,1 @@
-enum MovieScreenState { upcomingMovies, genres, search, searched }
+enum MovieScreenState { upcomingMovies, genres, search }

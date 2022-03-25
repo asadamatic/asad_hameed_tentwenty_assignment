@@ -1,0 +1,4 @@
+enum SearchingState{
+  loading,
+  loaded
+}

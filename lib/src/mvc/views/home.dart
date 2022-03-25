@@ -16,13 +16,9 @@ class Home extends StatelessWidget {
 
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
-        // shape: const AutomaticNotchedShape(RoundedRectangleBorder(
-        //     borderRadius: BorderRadius.only(
-        //         topLeft: Radius.circular(AppStyles.bottomNavBarRadius),
-        //         topRight: Radius.circular(AppStyles.bottomNavBarRadius)))),
         child: PersistentTabView(
           context,
-          controller: _movieController.controller,
+          controller: _movieController.persistentTabController,
           screens: _buildScreens(),
           items: _navBarsItems(),
           confineInSafeArea: true,
